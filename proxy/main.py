@@ -8,7 +8,7 @@ def run():
     socket = create_connection(WS_URL)
     while True:
         msg = socket.recv().decode("utf-8").split("\n")
-        conn = httplib.HTTPConnection("bluenotepad.com")
+        conn = httplib.HTTPConnection("icplayer.com")
         conn.request(msg[0], msg[1], msg[2])
         response = conn.getresponse()
         if response.status == 301:
