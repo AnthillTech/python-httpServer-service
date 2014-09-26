@@ -47,7 +47,6 @@ def callWebserver(method, path, body):
 
 if __name__ == "__main__":
     while True:
-        run()
         try:
             print(str(datetime.datetime.now()) + ": Starting connection")
             run()
