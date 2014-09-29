@@ -20,8 +20,10 @@ def run():
         msg = socket.recv().decode("utf-8")
         (msgId, method, path, body) = parseMessage(msg)
         response = callWebserver(method, path, body)
-        while response.status >= 300 and response.status < 400:
+        counter = 10
+        while response.status >= 300 and response.status < 400 and counter > 0:
             response = callWebserver(method, response.getheader("location", "/"), body)
+            counter -= 1
         headers = buildHeaders(msgId, response)
         body = response.read()
         resp = bytes(headers) + body
