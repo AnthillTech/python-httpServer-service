@@ -4,7 +4,8 @@ import datetime
 from websocket import create_connection
 
 # Where to connect with websockets
-TUNNELING_SERVER = "localhost:9000"
+# TUNNELING_SERVER = "localhost:9000"
+TUNNELING_SERVER = "followit24.com:8080"
 # Unique for tunnel server device name (no spaces allowed)
 DEVICE_NAME = "test"
 # Provide content from this server
