@@ -20,8 +20,6 @@ def run():
         msg = socket.recv().decode("utf-8")
         (msgId, method, path, body) = parseMessage(msg)
         response = callWebserver(method, path, body)
-        if response.status == 301:
-            response = callWebserver(method, response.getheader("location", path), body)
         headers = buildHeaders(msgId, response)
         body = response.read()
         resp = bytes(headers) + body
